@@ -9,9 +9,9 @@ public class Particle {
     private int width, height;
 
     // variables for circular motion
-    private double angle =0;
-    private double angularSpeed = 0.03;
-    private int orbitalRadius = 50;
+    private double angle;
+    private double angularSpeed;
+    private int orbitalRadius;
     private int centerX;
     private int centerY;
 
@@ -30,12 +30,18 @@ public class Particle {
          height = windowHeight;
 
          centerX = windowWidth/2;
-         centerY = windowHeight/2;
-         angle = randInt
+         centerY = randInt(0, windowHeight);
+         angle = randInt(0, 50);
+         angularSpeed = randDouble(0.02, 0.3);
+         orbitalRadius = randInt(500, 50);
     }
     public int randInt(int min, int max){
-        return(int)(min + Math,random(0))
+        return(int)(min + Math.random() * (max - min));
     }
+    public double randDouble(double min, double max){
+        return min + Math.random() * (max - min);
+    }
+
 
     public void draw(Graphics2D g){
         g.setColor(color);
